@@ -1,0 +1,7 @@
+language: go
+
+# Only build with the code in vendor/
+install: true
+
+script:
+  - go test -v
