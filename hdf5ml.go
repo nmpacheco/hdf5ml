@@ -88,13 +88,9 @@ func (m *mlhdf5) GetHDF5Data(s SetType, d interface{}) error {
 	return nil
 }
 
-func isHDF5(fd string) bool {
-	return hdf5.IsHDF5(fd)
-}
-
 func openHDF5File(fd string, access int) (hdf5.File, error) {
 
-	if !isHDF5(fd) {
+	if !hdf5.IsHDF5(fd) {
 		return hdf5.File{}, fmt.Errorf("%s is not a HDF5 file", fd)
 	}
 
